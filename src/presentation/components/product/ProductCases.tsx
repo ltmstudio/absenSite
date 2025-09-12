@@ -1,6 +1,13 @@
 "use client";
 
-import { ProductCase } from '../../../domain/entities/Product';
+interface ProductCase {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  location: string;
+  specifications: string[];
+}
 
 interface ProductCasesProps {
   cases: ProductCase[];

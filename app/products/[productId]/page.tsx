@@ -1,8 +1,7 @@
 import { notFound } from 'next/navigation';
-import { ProductRepositoryImpl } from '../../../src/data/repositories/ProductRepositoryImpl';
-import { GetProductUseCase } from '../../../src/domain/usecases/GetProductUseCase';
 import { ProductPageLayout } from '../../../src';
 import { Navigation, Footer } from '../../../src/shared/ui';
+import { products } from '../../../src/data/datasources/products';
 
 interface ProductPageProps {
   params: {
@@ -13,10 +12,8 @@ interface ProductPageProps {
 export default async function ProductPage({ params }: ProductPageProps) {
   const { productId } = await params;
   
-  // Получаем продукт
-  const productRepository = new ProductRepositoryImpl();
-  const getProductUseCase = new GetProductUseCase(productRepository);
-  const product = await getProductUseCase.execute(productId);
+  // Получаем продукт из статичных данных
+  const product = products.find(p => p.id === productId);
   
   if (!product) {
     notFound();
@@ -35,9 +32,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
 // Генерируем статические параметры для всех продуктов
 export async function generateStaticParams() {
-  const productRepository = new ProductRepositoryImpl();
-  const products = await productRepository.getAll();
-  
   return products.map((product) => ({
     productId: product.id,
   }));

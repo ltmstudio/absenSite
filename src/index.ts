@@ -1,22 +1,14 @@
-// Экспорт доменных сущностей
-export * from './domain/entities/Category';
-export * from './domain/entities/Product';
+// Доменные сущности закомментированы - используем модели из data/models
 
-// Экспорт интерфейсов репозиториев
-export * from './domain/repositories/CategoryRepository';
-export * from './domain/repositories/ProductRepository';
+// Репозитории и use cases оставлены для совместимости, но не используются
+// export * from './domain/repositories/CategoryRepository';
+// export * from './domain/repositories/ProductRepository';
+// export * from './domain/usecases/GetCategoriesUseCase';
+// export * from './domain/usecases/GetProductUseCase';
+// export * from './domain/repositories/CategoryRepositoryImpl';
+// export * from './domain/repositories/ProductRepositoryImpl';
 
-// Экспорт сценариев использования
-export * from './domain/usecases/GetCategoriesUseCase';
-export * from './domain/usecases/GetProductUseCase';
-
-// Экспорт реализаций репозиториев
-export * from './data/repositories/CategoryRepositoryImpl';
-export * from './data/repositories/ProductRepositoryImpl';
-
-// Экспорт хуков
-export * from './presentation/hooks/useCategories';
-export * from './presentation/hooks/useProduct';
+// Хуки удалены - используем прямые импорты статичных данных
 
 // Экспорт компонентов
 // export * from './presentation/components';

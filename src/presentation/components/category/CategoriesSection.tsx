@@ -1,11 +1,11 @@
 "use client";
 
-import { useCategories } from '../../hooks/useCategories';
-import { Category } from '../../../domain/entities/Category';
+import { CategoryModel } from '@/src/data/models/category_model';
 import { useRouter } from 'next/navigation';
+import { CategoryDataSource } from '@/src/data/datasources/category';
 
 interface CategoryCardProps {
-  category: Category;
+  category: CategoryModel;
 }
 
 function CategoryCard({ category }: CategoryCardProps) {
@@ -33,27 +33,7 @@ function CategoryCard({ category }: CategoryCardProps) {
 }
 
 export default function CategoriesSection() {
-  const { categories, loading, error } = useCategories();
-
-  if (loading) {
-    return (
-      <div className="text-center">
-        <p>Загрузка категорий...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <section className="categories-section">
-        <div className="w-full lg:max-w-[80%] mx-auto">
-          <div className="text-center">
-            <p>Ошибка загрузки: {error}</p>
-          </div>
-        </div>
-      </section>
-    );
-  }
+  const categories = CategoryDataSource.getCategories();
 
   return (
     <section className="categories-section">

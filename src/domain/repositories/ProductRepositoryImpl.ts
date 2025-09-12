@@ -1,5 +1,5 @@
 import { Product, ProductAdvantage, ProductApplication, ProductCase, ProductFAQ, TechnicalSpecification } from '../../domain/entities/Product';
-import { ProductRepository } from '../../domain/repositories/ProductRepository';
+import { ProductRepository } from './ProductRepository';
 
 export class ProductRepositoryImpl implements ProductRepository {
   async getAll(): Promise<Product[]> {

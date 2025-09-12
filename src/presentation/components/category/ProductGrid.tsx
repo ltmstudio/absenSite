@@ -1,8 +1,8 @@
 "use client";
 
-import { useProducts } from '../../hooks/useProducts';
-import { Product } from '../../../domain/entities/Product';
+import { Product } from '../../../data/models/product';
 import { useRouter } from 'next/navigation';
+import { products } from '../../../data/datasources/products';
 
 interface ProductGridProps {
   categoryId: string;
@@ -66,13 +66,15 @@ function ProductCard({ product }: ProductCardProps) {
 }
 
 export function ProductGrid({ categoryId }: ProductGridProps) {
-  const { products, loading, error } = useProducts(categoryId);
-
+  // Фильтруем продукты по категории
+  const filteredProducts = categoryId === 'all' 
+    ? products 
+    : products.filter(product => product.categoryId === categoryId);
 
   return (
     <div className="product-grid">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {products.map((product) => (
+        {filteredProducts.map((product) => (
           <ProductCard
             key={product.id}
             product={product}

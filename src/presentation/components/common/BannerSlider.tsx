@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from 'react';
-import { StaticDataSource } from '../../../data/datasources/StaticDataSource';
+import { StaticDataSource } from '../../../data/datasources/banner_data';
 import { Button } from '../../../shared/ui';
 import { componentStyles } from '../../../shared/theme/theme';
 

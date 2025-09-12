@@ -1,8 +1,8 @@
-import { Category } from '../../domain/entities/Category';
-import { Banner } from '../../domain/entities/Category';
-import { CompanyInfo } from '../../domain/entities/Category';
-import { CategoryRepository, BannerRepository, CompanyRepository } from '../../domain/repositories/CategoryRepository';
-import { StaticDataSource } from '../datasources/StaticDataSource';
+import { Category } from '../entities/Category';
+import { Banner } from '../entities/Category';
+import { CompanyInfo } from '../entities/Category';
+import { CategoryRepository, BannerRepository, CompanyRepository } from './CategoryRepository';
+import { StaticDataSource } from '../../data/datasources/company';
 
 // Реализация репозитория категорий
 export class CategoryRepositoryImpl implements CategoryRepository {

@@ -1,6 +1,6 @@
 "use client";
 
-import { CategoryModel } from '../../data/datasources/StaticDataSource';
+import { CategoryModel } from '../../data/models/category_model';
 import { CategoryFilter, ProductGrid } from '../components/category';
 
 interface CategoryPageLayoutProps {

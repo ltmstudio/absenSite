@@ -1,6 +1,6 @@
 "use client";
 
-import { StaticDataSource } from '../../../data/datasources/StaticDataSource';
+import { StaticDataSource } from '../../../data/datasources/company';
 
 export function AboutCompanyBlock() {
   const companyInfo = StaticDataSource.getCompanyInfo();

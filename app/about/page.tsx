@@ -1,5 +1,5 @@
 import { Navigation, Footer } from '../../src/shared/ui';
-import { AboutPageLayout } from '../../src';
+import { AboutPageLayout } from '../../src/presentation/pages/AboutPageLayout';
 
 export default function About() {
   return (

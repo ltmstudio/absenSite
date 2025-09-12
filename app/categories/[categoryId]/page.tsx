@@ -1,5 +1,5 @@
 import { notFound } from 'next/navigation';
-import { StaticDataSource } from '../../../src/data/datasources/StaticDataSource';
+import { CategoryDataSource } from '../../../src/data/datasources/category';
 import { CategoryPageLayout } from '../../../src';
 import { Navigation, Footer } from '../../../src/shared/ui';
 
@@ -34,7 +34,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   }
   
   // Получаем все категории для проверки существования
-  const categories = StaticDataSource.getCategories();
+  const categories = CategoryDataSource.getCategories();
   const category = categories.find(cat => cat.id === categoryId);
   
   if (!category) {
@@ -54,7 +54,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
 
 // Генерируем статические параметры для всех категорий
 export async function generateStaticParams() {
-  const categories = StaticDataSource.getCategories();
+  const categories = CategoryDataSource.getCategories();
   
   return [
     { categoryId: 'all' },
