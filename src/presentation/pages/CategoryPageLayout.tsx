@@ -31,7 +31,7 @@ export function CategoryPageLayout({ category }: CategoryPageLayoutProps) {
 
       {/* Сетка продуктов */}
       <section className="py-16 bg-gray-50">
-        <div className="max-w-[80%] mx-auto">
+        <div className="max-w-[60%] mx-auto">
           <ProductGrid categoryId={category.id} />
         </div>
       </section>

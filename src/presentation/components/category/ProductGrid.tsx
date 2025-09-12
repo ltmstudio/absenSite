@@ -68,29 +68,6 @@ function ProductCard({ product }: ProductCardProps) {
 export function ProductGrid({ categoryId }: ProductGridProps) {
   const { products, loading, error } = useProducts(categoryId);
 
-  if (loading) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-gray-500 text-lg">Загрузка продуктов...</p>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-red-500 text-lg">Ошибка загрузки: {error}</p>
-      </div>
-    );
-  }
-
-  if (products.length === 0) {
-    return (
-      <div className="text-center py-16">
-        <p className="text-gray-500 text-lg">Продукты для данной категории пока не добавлены</p>
-      </div>
-    );
-  }
 
   return (
     <div className="product-grid">

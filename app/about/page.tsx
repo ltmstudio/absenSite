@@ -1,11 +1,11 @@
 import { Navigation, Footer } from '../../src/shared/ui';
-import { ContactsPageLayout } from '../../src/presentation/pages/ContactsPageLayout';
+import { AboutPageLayout } from '../../src';
 
-export default function Contact() {
+export default function About() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <ContactsPageLayout />
+      <AboutPageLayout />
       <Footer />
     </div>
   );

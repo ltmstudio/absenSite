@@ -3,8 +3,8 @@ import { ProductRepository } from '../../domain/repositories/ProductRepository';
 
 export class ProductRepositoryImpl implements ProductRepository {
   async getAll(): Promise<Product[]> {
-    // Здесь будет логика получения всех продуктов
-    return [];
+    // Возвращаем все продукты из статических данных
+    return this.getStaticProducts();
   }
 
   async getById(id: string): Promise<Product | null> {
@@ -15,6 +15,13 @@ export class ProductRepositoryImpl implements ProductRepository {
 
   async getByCategory(categoryId: string): Promise<Product[]> {
     const products = this.getStaticProducts();
+    
+    // Если запрашиваются все продукты, возвращаем все
+    if (categoryId === 'all') {
+      return products;
+    }
+    
+    // Иначе фильтруем по категории
     return products.filter(product => product.categoryId === categoryId);
   }
 

@@ -10,7 +10,7 @@ export default function Navigation() {
   const navItems = [
     { href: '/', label: 'Главная' },
     { href: '/about', label: 'О нас' },
-    { href: '/contacts', label: 'Контакты' },
+    { href: '/contact', label: 'Контакты' },
     { href: '/categories', label: 'Продукция' }
   ];
 

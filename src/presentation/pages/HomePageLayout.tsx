@@ -1,11 +1,11 @@
 "use client";
 
 import { CategoriesSection } from '../components/category';
-import { BannerSlider, WhyAbsenBlock, AboutCompanyBlock, ContactForm, HeroSection } from '../components/common';
+import { BannerSlider,  AboutCompanyBlock, ContactForm, HeroSection } from '../components/common';
 
 export function HomePageLayout() {
   return (
-    <div className="min-h-screen flex flex-col mx-auto">
+    <div className="min-h-screen flex flex-col ">
       <main className="flex-grow bg-white">
         {/* Hero Section */}
         <HeroSection />
@@ -30,7 +30,7 @@ export function HomePageLayout() {
         {/* Why Absen Section */}
         <section className="why-absen-section">
           <div className="max-w-[90%] sm:max-w-[80%] md:max-w-[80%] lg:max-w-[60%] xl:max-w-[60%]  mx-auto">
-            <WhyAbsenBlock />
+            {/* <WhyAbsenBlock /> */}
           </div>
         </section>
 
