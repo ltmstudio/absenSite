@@ -1,36 +1,120 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Absen - Многоязычный сайт
 
-## Getting Started
+Современный многостраничный сайт на Next.js с поддержкой трех языков (русский, английский, немецкий).
 
-First, run the development server:
+## 🚀 Технологии
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+- **Next.js 15** - React фреймворк
+- **TypeScript** - типизация
+- **Tailwind CSS** - стилизация
+- **next-intl** - интернационализация
+- **React 19** - UI библиотека
+
+## 📁 Структура проекта
+
+```
+absen/
+├── app/
+│   ├── [locale]/           # Локализованные страницы
+│   │   ├── about/          # Страница "О нас"
+│   │   ├── contacts/       # Страница "Контакты"
+│   │   ├── products/       # Страница "Продукция"
+│   │   ├── components/     # Компоненты
+│   │   │   ├── Navigation.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── LanguageSwitcher.tsx
+│   │   ├── layout.tsx      # Layout для локализованных страниц
+│   │   └── page.tsx        # Главная страница
+│   ├── globals.css         # Глобальные стили
+│   ├── layout.tsx          # Корневой layout
+│   └── page.tsx            # Перенаправление на /ru
+├── messages/               # Файлы переводов
+│   ├── ru.json            # Русский язык
+│   ├── en.json            # Английский язык
+│   └── de.json            # Немецкий язык
+├── i18n.ts                # Конфигурация интернационализации
+├── middleware.ts          # Middleware для роутинга языков
+└── next.config.ts         # Конфигурация Next.js
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🌍 Поддерживаемые языки
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- 🇷🇺 **Русский** (ru) - язык по умолчанию
+- 🇺🇸 **Английский** (en)
+- 🇩🇪 **Немецкий** (de)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Страницы
 
-## Learn More
+1. **Главная** (`/`) - приветственная страница с информацией о компании
+2. **О нас** (`/about`) - информация о компании, миссии, команде
+3. **Контакты** (`/contacts`) - контактная информация и форма обратной связи
+4. **Продукция** (`/products`) - каталог услуг и продуктов
 
-To learn more about Next.js, take a look at the following resources:
+## 🛠️ Установка и запуск
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. **Установка зависимостей:**
+   ```bash
+   npm install
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. **Запуск в режиме разработки:**
+   ```bash
+   npm run dev
+   ```
 
-## Deploy on Vercel
+3. **Открыть в браузере:**
+   ```
+   http://localhost:3000
+   ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Доступные команды
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `npm run dev` - запуск в режиме разработки
+- `npm run build` - сборка для продакшена
+- `npm run start` - запуск продакшен версии
+- `npm run lint` - проверка кода линтером
+
+## 🌐 Роутинг
+
+Сайт использует локализованный роутинг:
+
+- `/ru` - русская версия
+- `/en` - английская версия  
+- `/de` - немецкая версия
+- `/` - перенаправление на `/ru`
+
+Каждая страница доступна на всех языках:
+- `/ru/about`, `/en/about`, `/de/about`
+- `/ru/contacts`, `/en/contacts`, `/de/contacts`
+- `/ru/products`, `/en/products`, `/de/products`
+
+## 📝 Добавление новых переводов
+
+1. Откройте файл в папке `messages/` для нужного языка
+2. Добавьте новые ключи в JSON формат
+3. Используйте в компонентах через `useTranslations()`
+
+Пример:
+```typescript
+const t = useTranslations('pages.home');
+return <h1>{t('title')}</h1>;
+```
+
+## 🎨 Стилизация
+
+Проект использует Tailwind CSS для стилизации. Все компоненты стилизованы с помощью utility классов.
+
+## 📱 Адаптивность
+
+Сайт полностью адаптивен и корректно отображается на всех устройствах:
+- Мобильные телефоны
+- Планшеты  
+- Десктопы
+
+## 🚀 Деплой
+
+Проект готов для деплоя на Vercel, Netlify или любую другую платформу, поддерживающую Next.js.
+
+---
+
+Создано с ❤️ на Next.js + TypeScript + Tailwind CSS

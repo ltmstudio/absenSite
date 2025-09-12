@@ -1,0 +1,30 @@
+---
+alwaysApply: true
+---
+
+{
+  "ai.projectInstructions": [
+    "Используем Next.js для структуры и роутинга.",
+    "Для верстки всегда применяем Tailwind CSS.",
+    "Вся верстка должна быть адаптивной (desktop, tablet, mobile).",
+    "Поддерживаем общие стили и переиспользуемые UI-компоненты.",
+    "Соблюдаем принцип чистой архитектуры: разделяем бизнес-логику, UI и данные.",
+    "Код должен быть читаемым, поддерживаемым и соответствовать best practices React/Next.js."
+  ],
+  "description": "Frontend project based on Next.js + Tailwind CSS with clean architecture",
+  "globs": ["**/*"],
+  "alwaysApply": true
+}
+{
+  "ai.projectInstructions": [
+    "Используем Next.js для структуры и роутинга.",
+    "Для верстки всегда применяем Tailwind CSS.",
+    "Вся верстка должна быть адаптивной (desktop, tablet, mobile).",
+    "Поддерживаем общие стили и переиспользуемые UI-компоненты.",
+    "Соблюдаем принцип чистой архитектуры: разделяем бизнес-логику, UI и данные.",
+    "Код должен быть читаемым, поддерживаемым и соответствовать best practices React/Next.js."
+  ],
+  "description": "Frontend project based on Next.js + Tailwind CSS with clean architecture",
+  "globs": ["**/*"],
+  "alwaysApply": true
+}
