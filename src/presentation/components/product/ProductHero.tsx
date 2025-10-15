@@ -1,6 +1,6 @@
 "use client";
 
-import { Product } from '../../../domain/entities/Product';
+import { Product } from '../../../data/models/product';
 import { Button } from '../../../shared/theme';
 
 interface ProductHeroProps {

@@ -2,7 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import { componentStyles } from '../../theme/theme';
 
-export default function Footer() {
+export function Footer() {
   return (
     <footer className={`${componentStyles.background.dark} text-background`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">

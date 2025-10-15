@@ -1,9 +1,8 @@
 "use client";
 
-import { Product } from '../../domain/entities/Product';
+import { Product } from '../../data/models/product';
 import { ProductHero } from '../components/product/ProductHero';
 import { ProductSpecifications } from '../components/product/ProductSpecifications';
-import { ProductCases } from '../components/product/ProductCases';
 import { ProductFAQ } from '../components/product/ProductFAQ';
 import { ProductCTA } from '../components/product/ProductCTA';
 

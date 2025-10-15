@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { Button } from '../../../shared/ui/components';
-import { componentStyles, createSectionStyles } from '../../../shared/theme/theme';
+import { createSectionStyles } from '../../../shared/theme/theme';
 
 export function ContactForm() {
   const [formData, setFormData] = useState({

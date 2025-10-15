@@ -1,13 +1,13 @@
-import { Category } from '../entities/Category';
-import { Banner } from '../entities/Category';
-import { CompanyInfo } from '../entities/Category';
+import { CategoryModel } from '../../data/models/category_model';
+import { BannerModel } from '../../data/models/banner_model';
+import { CompanyInfoModel } from '../../data/models/company_model';
 import { CategoryRepository, BannerRepository, CompanyRepository } from '../repositories/CategoryRepository';
 
 // Сценарий использования - Получение всех категорий
 export class GetCategoriesUseCase {
   constructor(private categoryRepository: CategoryRepository) {}
 
-  async execute(): Promise<Category[]> {
+  async execute(): Promise<CategoryModel[]> {
     return await this.categoryRepository.getAll();
   }
 }
@@ -16,7 +16,7 @@ export class GetCategoriesUseCase {
 export class GetCategoryByIdUseCase {
   constructor(private categoryRepository: CategoryRepository) {}
 
-  async execute(id: string): Promise<Category | null> {
+  async execute(id: string): Promise<CategoryModel | null> {
     return await this.categoryRepository.getById(id);
   }
 }
@@ -25,7 +25,7 @@ export class GetCategoryByIdUseCase {
 export class GetBannersUseCase {
   constructor(private bannerRepository: BannerRepository) {}
 
-  async execute(): Promise<Banner[]> {
+  async execute(): Promise<BannerModel[]> {
     return await this.bannerRepository.getAll();
   }
 }
@@ -34,7 +34,7 @@ export class GetBannersUseCase {
 export class GetActiveBannersUseCase {
   constructor(private bannerRepository: BannerRepository) {}
 
-  async execute(): Promise<Banner[]> {
+  async execute(): Promise<BannerModel[]> {
     return await this.bannerRepository.getActive();
   }
 }
@@ -43,7 +43,7 @@ export class GetActiveBannersUseCase {
 export class GetCompanyInfoUseCase {
   constructor(private companyRepository: CompanyRepository) {}
 
-  async execute(): Promise<CompanyInfo> {
+  async execute(): Promise<CompanyInfoModel> {
     return await this.companyRepository.getCompanyInfo();
   }
 }

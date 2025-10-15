@@ -1160,9 +1160,6 @@ p {
 }
 
 /* Страница категории */
-.category-page {
-  padding-top: 80px;
-}
 
 .category-filters {
   margin-bottom: 32px;
@@ -1257,5 +1254,15 @@ p {
 
 .product-content p {
   flex-grow: 1;
+}
+
+/* Скрытие скроллбара для горизонтального скролла */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Chrome, Safari and Opera */
 }
 

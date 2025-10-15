@@ -5,10 +5,14 @@ export interface Product {
   categoryId: string;
   heroImage: string;
   slogan: string;
+  images?: string[];
   technicalSpecs: TechnicalSpecification[];
   advantages: ProductAdvantage[];
   applications: ProductApplication[];
   faqs: ProductFAQ[];
+  cases?: ProductCase[];
+  specifications?: TechnicalSpecification[];
+  catalogPdf?: string;
 }
 
 export interface TechnicalSpecification {
@@ -30,10 +34,20 @@ export interface ProductApplication {
   icon: string;
   title: string;
   description: string;
+  examples?: string[];
 }
 
 export interface ProductFAQ {
   id: string;
   question: string;
   answer: string;
+}
+
+export interface ProductCase {
+  id: string;
+  title: string;
+  description: string;
+  image: string;
+  location: string;
+  specifications: string[];
 }

@@ -71,6 +71,25 @@ export function ProductGrid({ categoryId }: ProductGridProps) {
     ? products 
     : products.filter(product => product.categoryId === categoryId);
 
+  // Если нет продуктов, показываем сообщение
+  if (filteredProducts.length === 0) {
+    return (
+      <div className="product-grid">
+        <div className="flex items-center justify-center py-12">
+          <div className="text-center">
+           
+            <h3 className="text-xl font-semibold text-gray-700 mb-2">
+              Нет продукции
+            </h3>
+            <p className="text-gray-500">
+              В данной категории пока нет доступных продуктов
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="product-grid">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">

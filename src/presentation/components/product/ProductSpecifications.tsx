@@ -1,6 +1,6 @@
 "use client";
 
-import { TechnicalSpecification, ProductAdvantage, ProductApplication } from '../../../domain/entities/Product';
+import { TechnicalSpecification, ProductAdvantage, ProductApplication } from '../../../data/models/product';
 
 interface ProductSpecificationsProps {
   specifications: TechnicalSpecification[];

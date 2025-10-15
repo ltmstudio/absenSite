@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button } from '../lib';
+import { Button } from '@/src/shared/ui';
 
 export const ContactForm = () => {
   return (

@@ -7,7 +7,7 @@ interface ScrollFollowingBlockProps {
   className?: string;
 }
 
-export default function ScrollFollowingBlock({ children, className = "" }: ScrollFollowingBlockProps) {
+export function ScrollFollowingBlock({ children, className = "" }: ScrollFollowingBlockProps) {
   const [scrollY, setScrollY] = useState(0);
   const [isScrollingDown, setIsScrollingDown] = useState(false);
   const blockRef = useRef<HTMLDivElement>(null);

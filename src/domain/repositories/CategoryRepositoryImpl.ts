@@ -1,38 +1,40 @@
-import { Category } from '../entities/Category';
-import { Banner } from '../entities/Category';
-import { CompanyInfo } from '../entities/Category';
+import { CategoryModel } from '../../data/models/category_model';
+import { BannerModel } from '../../data/models/banner_model';
+import { CompanyInfoModel } from '../../data/models/company_model';
 import { CategoryRepository, BannerRepository, CompanyRepository } from './CategoryRepository';
-import { StaticDataSource } from '../../data/datasources/company';
+import { CategoryDataSource } from '../../data/datasources/category';
+import { StaticDataSource as BannerDataSource } from '../../data/datasources/banner_data';
+import { StaticDataSource as CompanyDataSource } from '../../data/datasources/company';
 
 // Реализация репозитория категорий
 export class CategoryRepositoryImpl implements CategoryRepository {
-  async getAll(): Promise<Category[]> {
-    const categories = StaticDataSource.getCategories();
+  async getAll(): Promise<CategoryModel[]> {
+    const categories = CategoryDataSource.getCategories();
     return categories.map(this.mapToEntity);
   }
 
-  async getById(id: string): Promise<Category | null> {
-    const categories = StaticDataSource.getCategories();
+  async getById(id: string): Promise<CategoryModel | null> {
+    const categories = CategoryDataSource.getCategories();
     const category = categories.find(c => c.id === id);
     return category ? this.mapToEntity(category) : null;
   }
 
-  async create(category: Omit<Category, 'id'>): Promise<Category> {
+  async create(_category: Omit<CategoryModel, 'id'>): Promise<CategoryModel> {
     // В реальном приложении здесь была бы логика создания
     throw new Error('Create operation not implemented for static data');
   }
 
-  async update(id: string, category: Partial<Category>): Promise<Category> {
+  async update(_id: string, _category: Partial<CategoryModel>): Promise<CategoryModel> {
     // В реальном приложении здесь была бы логика обновления
     throw new Error('Update operation not implemented for static data');
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(_id: string): Promise<void> {
     // В реальном приложении здесь была бы логика удаления
     throw new Error('Delete operation not implemented for static data');
   }
 
-  private mapToEntity(model: any): Category {
+  private mapToEntity(model: CategoryModel): CategoryModel {
     return {
       id: model.id,
       title: model.title,
@@ -45,35 +47,35 @@ export class CategoryRepositoryImpl implements CategoryRepository {
 
 // Реализация репозитория баннеров
 export class BannerRepositoryImpl implements BannerRepository {
-  async getAll(): Promise<Banner[]> {
-    const banners = StaticDataSource.getBanners();
+  async getAll(): Promise<BannerModel[]> {
+    const banners = BannerDataSource.getBanners();
     return banners.map(this.mapToEntity);
   }
 
-  async getById(id: string): Promise<Banner | null> {
-    const banners = StaticDataSource.getBanners();
+  async getById(id: string): Promise<BannerModel | null> {
+    const banners = BannerDataSource.getBanners();
     const banner = banners.find(b => b.id === id);
     return banner ? this.mapToEntity(banner) : null;
   }
 
-  async getActive(): Promise<Banner[]> {
+  async getActive(): Promise<BannerModel[]> {
     // Все баннеры считаются активными
     return this.getAll();
   }
 
-  async create(banner: Omit<Banner, 'id'>): Promise<Banner> {
+  async create(_banner: Omit<BannerModel, 'id'>): Promise<BannerModel> {
     throw new Error('Create operation not implemented for static data');
   }
 
-  async update(id: string, banner: Partial<Banner>): Promise<Banner> {
+  async update(_id: string, _banner: Partial<BannerModel>): Promise<BannerModel> {
     throw new Error('Update operation not implemented for static data');
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(_id: string): Promise<void> {
     throw new Error('Delete operation not implemented for static data');
   }
 
-  private mapToEntity(model: any): Banner {
+  private mapToEntity(model: BannerModel): BannerModel {
     return {
       id: model.id,
       title: model.title,
@@ -90,8 +92,8 @@ export class BannerRepositoryImpl implements BannerRepository {
 
 // Реализация репозитория компании
 export class CompanyRepositoryImpl implements CompanyRepository {
-  async getCompanyInfo(): Promise<CompanyInfo> {
-    const info = StaticDataSource.getCompanyInfo();
+  async getCompanyInfo(): Promise<CompanyInfoModel> {
+    const info = CompanyDataSource.getCompanyInfo();
     return {
       stats: info.stats.map(stat => ({
         number: stat.number,
@@ -105,7 +107,7 @@ export class CompanyRepositoryImpl implements CompanyRepository {
     };
   }
 
-  async updateCompanyInfo(info: Partial<CompanyInfo>): Promise<CompanyInfo> {
+  async updateCompanyInfo(_info: Partial<CompanyInfoModel>): Promise<CompanyInfoModel> {
     throw new Error('Update operation not implemented for static data');
   }
 }

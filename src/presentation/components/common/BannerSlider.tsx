@@ -3,7 +3,6 @@
 import { useState, useEffect } from 'react';
 import { StaticDataSource } from '../../../data/datasources/banner_data';
 import { Button } from '../../../shared/ui';
-import { componentStyles } from '../../../shared/theme/theme';
 
 export interface BannerSliderProps {
   autoSlide?: boolean;
@@ -23,14 +22,6 @@ export function BannerSlider({ autoSlide = true, slideInterval = 5000 }: BannerS
 
     return () => clearInterval(interval);
   }, [autoSlide, slideInterval, banners.length]);
-
-  const nextSlide = () => {
-    setCurrentSlide((prev) => (prev + 1) % banners.length);
-  };
-
-  const prevSlide = () => {
-    setCurrentSlide((prev) => (prev - 1 + banners.length) % banners.length);
-  };
 
   const goToSlide = (index: number) => {
     setCurrentSlide(index);

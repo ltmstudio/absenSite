@@ -1,5 +1,5 @@
 import { CategoryDataSource } from '../datasources/category';
-import { StaticDataSource } from '../datasources/company';
+
 export interface CategoryModel {
     id: string;
     title: string;

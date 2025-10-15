@@ -10,7 +10,7 @@ interface HeadingProps {
 export const Heading: React.FC<HeadingProps> = ({ level, children, className = '' }) => {
   const headingStyles = componentStyles.heading[`h${level}` as keyof typeof componentStyles.heading];
   
-  const Tag = `h${level}` as keyof JSX.IntrinsicElements;
+  const Tag = `h${level}` as keyof React.JSX.IntrinsicElements;
   
   return (
     <Tag className={`${headingStyles} ${className}`}>

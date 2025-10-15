@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from 'react';
-import type { ProductFAQ } from '../../../domain/entities/Product';
+import type { ProductFAQ } from '../../../data/models/product';
 
 interface ProductFAQProps {
   faqs: ProductFAQ[];

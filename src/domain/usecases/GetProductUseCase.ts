@@ -1,4 +1,4 @@
-import { Product } from '../entities/Product';
+import { Product } from '../../data/models/product';
 import { ProductRepository } from '../repositories/ProductRepository';
 
 export class GetProductUseCase {

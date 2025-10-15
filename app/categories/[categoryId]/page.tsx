@@ -25,7 +25,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navigation />
-        <main className="flex-grow bg-white">
+        <main className="flex-grow flex">
           <CategoryPageLayout category={allCategory} />
         </main>
         <Footer />
@@ -44,7 +44,7 @@ export default async function CategoryPage({ params }: CategoryPageProps) {
   return (
     <div className="min-h-screen flex flex-col">
       <Navigation />
-      <main className="flex-grow bg-white">
+      <main className="h-full">
         <CategoryPageLayout category={category} />
       </main>
       <Footer />

@@ -1,4 +1,4 @@
-import { Product, ProductAdvantage, ProductApplication, ProductCase, ProductFAQ, TechnicalSpecification } from '../../domain/entities/Product';
+import { Product } from '../../data/models/product';
 import { ProductRepository } from './ProductRepository';
 
 export class ProductRepositoryImpl implements ProductRepository {
@@ -25,15 +25,15 @@ export class ProductRepositoryImpl implements ProductRepository {
     return products.filter(product => product.categoryId === categoryId);
   }
 
-  async create(product: Omit<Product, 'id'>): Promise<Product> {
+  async create(_product: Omit<Product, 'id'>): Promise<Product> {
     throw new Error('Method not implemented.');
   }
 
-  async update(id: string, product: Partial<Product>): Promise<Product> {
+  async update(_id: string, _product: Partial<Product>): Promise<Product> {
     throw new Error('Method not implemented.');
   }
 
-  async delete(id: string): Promise<void> {
+  async delete(_id: string): Promise<void> {
     throw new Error('Method not implemented.');
   }
 
