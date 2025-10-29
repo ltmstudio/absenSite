@@ -2,6 +2,8 @@
 
 import { CategoriesSection } from '../components/category';
 import { BannerSlider,  AboutCompanyBlock, ContactForm, HeroSection } from '../components/common';
+import NewsBlock from '../components/common/NewsCarousel';
+
 
 export function HomePageLayout() {
   return (
@@ -16,6 +18,7 @@ export function HomePageLayout() {
             <CategoriesSection />
           </div>
         </section>
+        <NewsBlock />
 
         {/* Banner Slider Section */}
         <section>
