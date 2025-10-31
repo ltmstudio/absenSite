@@ -30,7 +30,7 @@ export default function News({ items }: { items: NewsItem[] }) {
   } as const;
 
   return (
-    <section className="relative py-4 w-full lg:max-w-[80%] mx-auto">
+    <section className="relative py-4 w-full lg:max-w-[100%] mx-auto">
       <div className="mb-6 flex items-center justify-between">
         <h2 className="text-3xl font-bold">События & Новости</h2>
       </div>
@@ -39,10 +39,10 @@ export default function News({ items }: { items: NewsItem[] }) {
         {items.map((n) => (
           <SplideSlide key={n.id}>
             {/* ШИРИНА КАРТОЧКИ УПРАВЛЯЕТСЯ ЗДЕСЬ */}
-            <article className="px-1 py-2 shrink-0 w-[85vw] md:w-[600px] lg:w-[700px]  ">
+            <article className="px-1 py-2 shrink-0 w-[350px] md:w-[600px] lg:w-[700px] overflow-hidden ">
               <div className="h-full rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 md:p-6 flex gap-4 md:gap-6">
                 {/* Картинка слева */}
-                <div className="relative w-[300px] md:w-[320px] aspect-[16/10] overflow-hidden rounded-xl">
+                <div className="relative w-[120px] md:w-[320px] aspect-[16/10] overflow-hidden rounded-xl">
                   <Image
                     src={n.image}
                     alt={n.title}
@@ -61,7 +61,7 @@ export default function News({ items }: { items: NewsItem[] }) {
                 {/* Контент справа */}
                 <div className="flex min-w-0 flex-1 flex-col justify-between">
                   <div className="space-y-2">
-                    <h3 className="text-xl font-semibold text-gray-900 line-clamp-2">
+                    <h3 className="text-lg sm:text-xl font-semibold text-gray-900 line-clamp-2">
                       <Link href={n.href} className="hover:underline">
                         {n.title}
                       </Link>

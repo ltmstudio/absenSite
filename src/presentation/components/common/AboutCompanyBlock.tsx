@@ -12,7 +12,8 @@ export function AboutCompanyBlock() {
   if (!companyInfo || !companyInfo.stats || !companyInfo.services) {
     return (
       <section className="py-24 bg-gray-100">
-        <div className="max-w-7xl mx-auto px-4 text-center">
+        <div className="max-w-[100%] mx-auto px-4 text-center">
+        {/* <div className="max-w-7xl mx-auto px-4 text-center"> */}
           <p className="text-gray-600">Загрузка данных о компании...</p>
         </div>
       </section>

@@ -37,7 +37,7 @@ export default function CategoriesSection() {
 
   return (
     <section className="categories-section">
-      <div className="w-full lg:max-w-[80%] mx-auto">
+      <div className="w-full lg:max-w-[100%] mx-auto">
         <div className="text-center mb-12">
           <h2 className="text-section-title mb-4">
             Категории продукции

@@ -112,7 +112,7 @@ export function ContactFormPage() {
                                     value={formData.phone}
                                     onChange={handleChange}
                                     className="w-full bg-transparent text-gray-900 placeholder-gray-500 focus:outline-none"
-                                    placeholder="+7 (999) 123-45-67"
+                                    placeholder="+993 64 123456"
                                 />
                             </div>
                         </div>

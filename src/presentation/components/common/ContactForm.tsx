@@ -26,7 +26,7 @@ export function ContactForm() {
 
   return (
     <section className={`${createSectionStyles('dark', 'large')} text-white`}>
-      <div className="max-w-[80%] sm:max-w-[80%] md:max-w-[80%] lg:max-w-[50%] xl:max-w-[50%] w-full mx-auto px-6">
+      <div className="max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[100%] xl:max-w-[100%] w-full mx-auto px-4">
         
         {/* Header */}
         <div className="text-left mb-16 flex flex-col sm:flex-col md:flex-row lg:flex-row xl:flex-row  justify-between w-full">

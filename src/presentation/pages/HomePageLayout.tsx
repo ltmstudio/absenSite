@@ -18,11 +18,17 @@ export function HomePageLayout() {
             <CategoriesSection />
           </div>
         </section>
-        <NewsBlock />
+        <section>
+          <div className="max-w-[90%] sm:max-w-[80%] mx-auto">
+              <NewsBlock />
+          </div>
+          
+        </section>
+        
 
         {/* Banner Slider Section */}
         <section>
-          <div className="max-w-[80%] mx-auto">
+          <div className="max-w-[90%] sm:max-w-[80%]  mx-auto ">
             <BannerSlider
               autoSlide={true}
               slideInterval={6000}
@@ -41,7 +47,13 @@ export function HomePageLayout() {
         <AboutCompanyBlock />
 
         {/* Contact Form Section */}
-        <ContactForm />
+       
+        <section className="bg-black mx-auto">
+          <div className="max-w-[90%]  sm:max-w-[80%] mx-auto">
+          <ContactForm />
+          </div>
+          
+        </section>
       </main>
     </div>
   );
