@@ -1,5 +1,5 @@
 "use client";
-
+import Image from "next/image";
 import { StaticDataSource } from '../../../data/datasources/company';
 
 export function AboutCompanyBlock() {
@@ -29,8 +29,8 @@ export function AboutCompanyBlock() {
         }}></div>
       </div>
       
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header */}
+      <div className="max-w-[90%] sm:max-w-[80%] mx-auto mx-auto px-4 sm:px-6 md:px-4">
+        {/* Headerrelative py-4 w-full lg:max-w-[100%] mx-auto */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
             О компании <span className="text-orange-500">Absen</span>
@@ -41,7 +41,7 @@ export function AboutCompanyBlock() {
         </div>
 
         {/* Main Content Grid */}
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24 items-start">
           
           {/* Left Column - Stats */}
           <div className="space-y-12">
@@ -49,13 +49,24 @@ export function AboutCompanyBlock() {
               <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8">
                 Наши достижения в цифрах
               </h3>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid sm:grid-cols-1  xl:grid-cols-2 gap-6">
                 {companyInfo.stats.map((stat, index) => (
                   <div 
                     key={index} 
                     className="group relative bg-white rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-200 hover:-translate-y-1"
                   >
-                    <div className="absolute top-4 right-4 w-12 h-12 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl opacity-10 group-hover:opacity-20 transition-opacity duration-300"></div>
+                    <div className="absolute top-4 right-4 bg-gradient-to-br from-white-0 to-white-0 rounded-xl opacity-60 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
+        {stat.icon && (
+          <Image
+            src={stat.icon}
+            alt={stat.label}
+            width={75}
+            height={50}
+            style={{ zIndex: 999 }}
+            className="opacity-100 group-hover:opacity-100 transition-transform duration-300 group-hover:scale-110"
+          />
+        )}
+      </div>
                     <div className="relative">
                       <div className="text-3xl md:text-4xl font-bold text-orange-500 mb-2 group-hover:scale-110 transition-transform duration-300">
                         {stat.number}

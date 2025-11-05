@@ -39,8 +39,17 @@ export default function News({ items }: { items: NewsItem[] }) {
         {items.map((n) => (
           <SplideSlide key={n.id}>
             {/* ШИРИНА КАРТОЧКИ УПРАВЛЯЕТСЯ ЗДЕСЬ */}
-            <article className="px-1 py-2 shrink-0 w-[350px] md:w-[600px] lg:w-[700px] overflow-hidden ">
-              <div className="h-full rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 md:p-6 flex gap-4 md:gap-6">
+            <article className="px-1 py-2 shrink-0 w-[350px] md:w-[600px] lg:w-[700px] overflow-hidden">
+              <div
+                className="
+                  h-full rounded-2xl bg-white shadow-sm ring-1 ring-gray-200 p-4 md:p-6 flex gap-4 md:gap-6
+                  transition-all duration-200
+                  hover:shadow-md hover:shadow-gray-300
+                  hover:ring-2 
+                  hover:-translate-y-1
+                  cursor-pointer
+                "
+              >
                 {/* Картинка слева */}
                 <div className="relative w-[120px] md:w-[320px] aspect-[16/10] overflow-hidden rounded-xl">
                   <Image

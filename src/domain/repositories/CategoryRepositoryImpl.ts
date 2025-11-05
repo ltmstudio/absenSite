@@ -98,7 +98,8 @@ export class CompanyRepositoryImpl implements CompanyRepository {
       stats: info.stats.map(stat => ({
         number: stat.number,
         label: stat.label,
-        description: stat.description
+        description: stat.description,
+        icon: stat.icon,
       })),
       services: info.services.map(service => ({
         title: service.title,

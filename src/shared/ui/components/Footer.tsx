@@ -5,7 +5,8 @@ import { componentStyles } from '../../theme/theme';
 export function Footer() {
   return (
     <footer className={`${componentStyles.background.dark} text-background`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <div className="max-w-[90%]  sm:max-w-[80%] mx-auto py-4 px-4">
+      {/* max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {/* Логотип и описание */}
           <div className="col-span-1 md:col-span-2">
@@ -33,15 +34,30 @@ export function Footer() {
             <ul className={`space-y-2 text-background/80`}>
               <li className="flex items-center space-x-2">
                 <span className="text-background">📞</span>
-                <span>+993 62 319427</span>
+                <a 
+                  href="tel:+99362319427"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  +993 62 319427
+                </a>
               </li>
               <li className="flex items-center space-x-2">
                 <span className="text-background">📞</span>
-                <span>+993 12 754393</span>
+                <a 
+                  href="tel:+99312754393"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  +993 12 754393
+                </a>
               </li> 
               <li className="flex items-center space-x-2">
                 <span className="text-background">✉️</span>
-                <span>inbox@absentm.com</span>
+                <a
+                  href="mailto:info@absentm.com"
+                  className="text-background/80 hover:text-background transition-colors"
+                >
+                  info@absentm.com
+                </a>
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-background">📍</span>

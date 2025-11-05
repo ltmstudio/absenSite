@@ -4,7 +4,7 @@ import BannerCarousel from './BannerCarousel';
 
 export function HeroSection() {
   return (
-    <section className="relative bg-white">
+    <section className="relative bg-white overflow-hidden">
       {/* full-bleed: выходим за пределы контейнера */}
       <div className="relative left-1/2 right-1/2 -ml-[50vw] -mr-[50vw] w-screen">
         <BannerCarousel

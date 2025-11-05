@@ -6,17 +6,20 @@ export class StaticDataSource {
       {
         number: "24",
         label: "года опыта",
-        description: "в LED-технологиях"
+        description: "в LED-технологиях",
+        icon: "/images/icons/calendar.png", // 🟧 календарь
       },
       {
         number: "60,000+",
         label: "довольных клиентов",
-        description: "по всему миру"
+        description: "по всему миру",
+        icon: "/images/icons/hand3.png", // 🟧 календарь
       },
       {
         number: "140+",
         label: "стран",
-        description: "где работают наши решения"
+        description: "где работают наши решения",
+        icon: "/images/icons/map.png", // 🟧 календарь
       }
     ],
     services: [
