@@ -12,7 +12,11 @@ export function AboutPageLayout() {
 
       {/* О компании */}
       <AboutCompanyBlock />
-      <ContactForm />
+      <section className="bg-black mx-auto">
+          <div className="max-w-[90%]  sm:max-w-[80%] mx-auto">
+          <ContactForm />
+          </div>
+          </section>
     </main>
   );
 }

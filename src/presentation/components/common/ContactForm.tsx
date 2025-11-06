@@ -25,7 +25,7 @@ export function ContactForm() {
   };
 
   return (
-    <section className={`${createSectionStyles('dark', 'large')} text-white`}>
+    <section className={`${createSectionStyles('dark', 'large')} bg-black text-white `}>
       <div className="max-w-[100%] sm:max-w-[100%] md:max-w-[100%] lg:max-w-[100%] xl:max-w-[100%] w-full mx-auto px-4">
         
         {/* Header */}
