@@ -1,20 +1,25 @@
 'use client';
-
+import { useTranslations } from 'next-intl';
+import LanguageDropdown from './LanguageDropdown';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
 
+
 export function Navigation() {
+  const t = useTranslations('nav');
+
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { href: '/', label: 'Главная' },
-    { href: '/about', label: 'О нас' },
-    { href: '/contact', label: 'Контакты' },
-    { href: '/categories', label: 'Продукция' },
+    { href: '/', key: 'home' },
+    { href: '/about', key: 'about' },
+    { href: '/contact', key: 'contact' },
+    { href: '/categories', key: 'categories' },
   ];
+  
 
   const toggleMobileMenu = () => setIsMobileMenuOpen((v) => !v);
 
@@ -38,30 +43,28 @@ export function Navigation() {
 
             {/* Меню рядом с логотипом */}
             <div className="hidden md:flex items-center gap-2 md:gap-3">
-              {navItems.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className={`px-2 py-1 rounded-md text-xs md:text-sm font-medium transition-colors ${
-                    pathname === item.href ||
-                    (item.href === '/categories' && pathname.startsWith('/categories'))
-                      ? 'bg-orange-200 text-orange-600'
-                      : 'text-gray-400 hover:text-white hover:bg-gray-800'
-                  }`}
-                >
-                  {item.label}
-                </Link>
-              ))}
+            {navItems.map((item) => (
+  <Link
+    key={item.href}
+    href={item.href}
+    className={`px-2 py-1 rounded-md text-xs md:text-sm font-medium transition-colors ${
+      pathname === item.href ||
+      (item.href === '/categories' && pathname.startsWith('/categories'))
+        ? 'bg-orange-200' // background as is
+          + ' ' +
+          'text-[rgb(242,140,32)]' // custom text color as requested
+        : 'text-gray-400 hover:text-white hover:bg-gray-800'
+    }`}
+  >
+   {t(item.key)}
+  </Link>
+))}
             </div>
           </div>
 
           {/* Контакты (только на lg и выше) */}
           <div className="hidden md:flex items-center text-sm text-gray-300 gap-3">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-              <circle cx="12" cy="12" r="10" />
-              <path d="M2 12h20" />
-              <path d="M12 2a15.3 15.3 0 010 20a15.3 15.3 0 010-20z" />
-            </svg>
+          <LanguageDropdown />
             <a href="tel:+99362319427" className="hover:text-orange-400 whitespace-nowrap">
               +993 62 31 94 27
             </a>
@@ -119,27 +122,13 @@ export function Navigation() {
                     : 'text-gray-300 hover:text-white hover:bg-gray-800'
                 }`}
               >
-                {item.label}
+                {t(item.key)}
               </Link>
             ))}
 
             {/* Контакты (мобилка) */}
             <div className="mt-3 border-t border-gray-800 pt-3 text-gray-300 space-y-2">
-              <div className="flex items-center gap-2 text-sm">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 text-gray-400"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                >
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20" />
-                  <path d="M12 2a15.3 15.3 0 010 20a15.3 15.3 0 010-20z" />
-                </svg>
-                <span>Global</span>
-              </div>
+             <LanguageDropdown />
               <a href="tel:+99362319427" className="block text-sm hover:text-orange-400">
                 +993 62 31 94 27
               </a>

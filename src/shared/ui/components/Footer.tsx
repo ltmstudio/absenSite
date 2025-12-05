@@ -1,8 +1,11 @@
+'use client';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import Link from 'next/link';
 import { componentStyles } from '../../theme/theme';
 
 export function Footer() {
+  const t = useTranslations('footer');
   return (
     <footer className={`${componentStyles.background.dark} text-background`}>
       <div className="max-w-[90%]  sm:max-w-[80%] mx-auto py-4 px-4">
@@ -12,25 +15,24 @@ export function Footer() {
           <div className="col-span-1 md:col-span-2">
             <h3 className="text-2xl font-bold mb-4 text-background">Absen</h3>
             <p className="text-background/80 mb-4">
-              Ведущий производитель LED-дисплеев для любых задач и применений. 
-              Инновационные решения для бизнеса, развлечений и рекламы.
+            {t('description')}
             </p>
           </div>
           
           {/* Быстрые ссылки */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-background">Продукция</h4>
+            <h4 className="text-lg font-semibold mb-4 text-background">{t('products')}</h4>
             <ul className="space-y-2">
-              <li><Link href="/categories/indoor-displays" className="text-background/80 hover:text-background transition-colors">Внутренние дисплеи</Link></li>
-              <li><Link href="/categories/outdoor-displays" className="text-background/80 hover:text-background transition-colors">Уличные дисплеи</Link></li>
-              <li><Link href="/categories/rental-displays" className="text-background/80 hover:text-background transition-colors">Арендные дисплеи</Link></li>
-              <li><Link href="/categories/creative-displays" className="text-background/80 hover:text-background transition-colors">Креативные решения</Link></li>
-            </ul>
+  <li><Link href="/categories/indoor-displays" className="text-background/80 hover:text-background transition-colors">{t('indoor')}</Link></li>
+  <li><Link href="/categories/outdoor-displays" className="text-background/80 hover:text-background transition-colors">{t('outdoor')}</Link></li>
+  <li><Link href="/categories/rental-displays" className="text-background/80 hover:text-background transition-colors">{t('rental')}</Link></li>
+  <li><Link href="/categories/creative-displays" className="text-background/80 hover:text-background transition-colors">{t('creative')}</Link></li>
+</ul>
           </div>
           
           {/* Контакты и социальные сети */}
           <div>
-            <h4 className="text-lg font-semibold mb-4 text-background">Контакты</h4>
+            <h4 className="text-lg font-semibold mb-4 text-background">{t('contacts')}</h4>
             <ul className={`space-y-2 text-background/80`}>
               <li className="flex items-center space-x-2">
                 <span className="text-background">📞</span>
@@ -61,13 +63,13 @@ export function Footer() {
               </li>
               <li className="flex items-start space-x-2">
                 <span className="text-background">📍</span>
-                <span>г. Ашхабад, Беркарарлык этрапы, 2127 ул. (Г. Гулыева), 26А</span>
+                <span>{t('address')}</span>
               </li>
             </ul>
             
             {/* Социальные сети */}
             <div className="mt-6">
-              <h5 className="text-sm font-semibold mb-3 text-background">Мы в соцсетях</h5>
+              <h5 className="text-sm font-semibold mb-3 text-background">{t('socials')}</h5>
               <div className="flex space-x-4">
                 {/* <a href="#" className="text-background/80 hover:text-background transition-colors" aria-label="Telegram">
                   <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -95,7 +97,7 @@ export function Footer() {
         </div>
         
         <div className={`border-t border-border mt-8 pt-8 text-center text-background/80`}>
-          <p>&copy; 2025 Absen. Все права защищены.</p>
+          <p>&copy; 2025 Absen. {t('copyright')}</p>
         </div>
       </div>
     </footer>

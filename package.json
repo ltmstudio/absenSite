@@ -12,7 +12,7 @@
     "@splidejs/react-splide": "^0.7.12",
     "keen-slider": "^6.8.6",
     "next": "15.5.2",
-    "next-intl": "^4.4.0",
+    "next-intl": "^4.5.5",
     "react": "19.1.0",
     "react-dom": "19.1.0"
   },

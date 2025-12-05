@@ -1,94 +1,151 @@
+// data/datasources/products.ts
 import { Product } from '../models/product';
 
 export const products: Product[] = [
   {
     id: 'hc-v3',
-    name: 'Серия НС V3',
-    description: 'Интеллектуальный дисплей высокого разрешения с тыльным обслуживанием',
     categoryId: 'indoor-displays',
     heroImage: '/images/banners/absen_1.jpg',
-    slogan: 'Яркость для любых условий',
+
+    // i18n-ключи (namespace: "products")
+    name: 'hc-v3.name',
+    description: 'hc-v3.description',
+    slogan: 'hc-v3.slogan',
+
     technicalSpecs: [
-      { name: 'Шаг пикселя', value: '2.5', unit: 'мм' },
-      { name: 'Яркость', value: '6000', unit: 'кд/м²' },
-      { name: 'Контрастность', value: '10000:1' },
-      { name: 'Угол обзора', value: '160°' },
-      { name: 'Частота обновления', value: '3840', unit: 'Гц' }
+      {
+        // products.hc-v3.technicalSpecs.pixelPitch.label / .unit
+        name: 'hc-v3.technicalSpecs.pixelPitch',
+        value: '2.5',
+        unit: 'mm',
+      },
+      {
+        // products.hc-v3.technicalSpecs.brightness.label / .unit
+        name: 'hc-v3.technicalSpecs.brightness',
+        value: '6000',
+        unit: 'cdPerM2',
+      },
+      {
+        // products.hc-v3.technicalSpecs.contrast.label
+        name: 'hc-v3.technicalSpecs.contrast',
+        value: '10000:1',
+      },
+      {
+        // products.hc-v3.technicalSpecs.viewAngle.label / .unit
+        name: 'hc-v3.technicalSpecs.viewAngle',
+        value: '160',
+        unit: 'degree',
+      },
+      {
+        // products.hc-v3.technicalSpecs.refreshRate.label / .unit
+        name: 'hc-v3.technicalSpecs.refreshRate',
+        value: '3840',
+        unit: 'hz',
+      },
     ],
+
     advantages: [
       {
         id: '1',
         icon: '⚡',
-        title: 'Высокая яркость',
         value: '6000',
-        description: 'Обеспечивает четкое изображение даже при ярком освещении'
+        // products.hc-v3.advantages.1.title / .description
+        title: 'hc-v3.advantages.1.title',
+        description: 'hc-v3.advantages.1.description',
       },
       {
         id: '2',
         icon: '🔧',
-        title: 'Легкое обслуживание',
         value: '',
-        description: 'Тыльное обслуживание для удобства монтажа и ремонта'
-      }
+        title: 'hc-v3.advantages.2.title',
+        description: 'hc-v3.advantages.2.description',
+      },
     ],
+
     applications: [
       {
         id: '1',
         icon: '🏢',
-        title: 'Офисные здания',
-        description: 'Информационные дисплеи в корпоративных центрах'
+        title: 'hc-v3.applications.1.title',
+        description: 'hc-v3.applications.1.description',
       },
       {
         id: '2',
         icon: '🛍️',
-        title: 'Торговые центры',
-        description: 'Рекламные экраны и навигационные системы'
-      }
+        title: 'hc-v3.applications.2.title',
+        description: 'hc-v3.applications.2.description',
+      },
     ],
+
     faqs: [
       {
         id: '1',
-        question: 'Какова гарантия на дисплей?',
-        answer: 'Гарантия составляет 3 года на основные компоненты.'
-      }
-    ]
+        question: 'hc-v3.faqs.1.question',
+        answer: 'hc-v3.faqs.1.answer',
+      },
+    ],
   },
+
   {
     id: 'outdoor-premium',
-    name: 'Outdoor Premium',
-    description: 'Уличный дисплей премиум-класса с защитой от погодных условий',
     categoryId: 'outdoor-displays',
     heroImage: '/images/banners/absen_2.jpg',
-    slogan: 'Надежность под открытым небом',
+
+    // i18n-ключи (namespace: "products")
+    name: 'outdoor-premium.name',
+    description: 'outdoor-premium.description',
+    slogan: 'outdoor-premium.slogan',
+
     technicalSpecs: [
-      { name: 'Шаг пикселя', value: '4.8', unit: 'мм' },
-      { name: 'Яркость', value: '8000', unit: 'кд/м²' },
-      { name: 'Контрастность', value: '15000:1' },
-      { name: 'Защита', value: 'IP65' }
+      {
+        // products.outdoor-premium.technicalSpecs.pixelPitch.label / .unit
+        name: 'outdoor-premium.technicalSpecs.pixelPitch',
+        value: '4.8',
+        unit: 'mm',
+      },
+      {
+        // products.outdoor-premium.technicalSpecs.brightness.label / .unit
+        name: 'outdoor-premium.technicalSpecs.brightness',
+        value: '8000',
+        unit: 'cdPerM2',
+      },
+      {
+        // products.outdoor-premium.technicalSpecs.contrast.label
+        name: 'outdoor-premium.technicalSpecs.contrast',
+        value: '15000:1',
+      },
+      {
+        // products.outdoor-premium.technicalSpecs.protection.label / .unit
+        name: 'outdoor-premium.technicalSpecs.protection',
+        value: 'IP65',
+      },
     ],
+
     advantages: [
       {
         id: '1',
         icon: '🛡️',
-        title: 'Защита IP65',
         value: '',
-        description: 'Полная защита от пыли и воды'
-      }
+        title: 'outdoor-premium.advantages.1.title',
+        description: 'outdoor-premium.advantages.1.description',
+      },
     ],
+
     applications: [
       {
         id: '1',
         icon: '🏙️',
-        title: 'Уличная реклама',
-        description: 'Билборды и рекламные щиты'
-      }
+        title: 'outdoor-premium.applications.1.title',
+        description: 'outdoor-premium.applications.1.description',
+      },
     ],
+
     faqs: [
       {
         id: '1',
-        question: 'Работает ли дисплей зимой?',
-        answer: 'Да, дисплей работает в диапазоне от -40°C до +60°C.'
-      }
-    ]
-  }
+        question: 'outdoor-premium.faqs.1.question',
+        answer: 'outdoor-premium.faqs.1.answer',
+      },
+    ],
+  },
 ];

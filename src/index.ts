@@ -21,5 +21,6 @@ export { AboutPageLayout } from './presentation/pages/AboutPageLayout';
 export { ContactsPageLayout } from './presentation/pages/ContactsPageLayout';
 export { LocalizedAboutPageLayout } from './presentation/pages/LocalizedAboutPageLayout';
 
+
 // Экспорт UI компонентов
 export * from './shared/ui';

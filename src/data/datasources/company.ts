@@ -5,39 +5,39 @@ export class StaticDataSource {
     stats: [
       {
         number: "24",
-        label: "года опыта",
-        description: "в LED-технологиях",
-        icon: "/images/icons/calendar.png", // 🟧 календарь
+        label: "stats.1.label",
+        description: "stats.1.description",
+        icon: "/images/icons/calendar.png",
       },
       {
         number: "60,000+",
-        label: "довольных клиентов",
-        description: "по всему миру",
-        icon: "/images/icons/hand3.png", // 🟧 календарь
+        label: "stats.2.label",
+        description: "stats.2.description",
+        icon: "/images/icons/hand3.png",
       },
       {
         number: "140+",
-        label: "стран",
-        description: "где работают наши решения",
-        icon: "/images/icons/map.png", // 🟧 календарь
+        label: "stats.3.label",
+        description: "stats.3.description",
+        icon: "/images/icons/map.png",
       }
     ],
     services: [
       {
-        title: "Экономия бюджета",
-        description: "Оптимальное соотношение цена/качество без переплат. Только проверенные решения Absen."
+        title: "services.1.title",
+        description: "services.1.description"
       },
       {
-        title: "Быстрый результат",
-        description: "Готовые решения под ваши задачи за минимальное время, от подбора до установки."
+        title: "services.2.title",
+        description: "services.2.description"
       },
       {
-        title: "Надежность",
-        description: "Проверенное оборудование с гарантией качества и долгим сроком службы."
+        title: "services.3.title",
+        description: "services.3.description"
       },
       {
-        title: "Поддержка 24/7",
-        description: "Техническая помощь и консультации в любое время, когда вам это нужно."
+        title: "services.4.title",
+        description: "services.4.description"
       }
     ]
   };

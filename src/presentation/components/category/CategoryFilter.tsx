@@ -2,6 +2,7 @@
 
 import { CategoryDataSource } from '@/src/data/datasources/category';
 import { useRouter } from 'next/navigation';
+import { useTranslations } from "next-intl";
 
 interface CategoryFilterProps {
   currentCategory: string;
@@ -9,14 +10,17 @@ interface CategoryFilterProps {
 
 export function CategoryFilter({ currentCategory }: CategoryFilterProps) {
   const router = useRouter();
+  const t = useTranslations("categories");   // новые переводы для категорий
+  const tc = useTranslations("common2");      // для "Все"
+
   const categories = CategoryDataSource.getCategories();
   
   // Добавляем "Все" в начало списка
   const allCategories = [
-    { id: 'all', title: 'Все', href: '/categories' },
+    { id: 'all', title: tc("all"), href: '/categories' },
     ...categories.map(cat => ({
       id: cat.id,
-      title: cat.title,
+      title: t(`${cat.id}.title`),
       href: cat.href
     }))
   ];
@@ -27,7 +31,8 @@ export function CategoryFilter({ currentCategory }: CategoryFilterProps) {
 
   return (
     <div className="category-filters">
-      {/* Десктопная версия - центрированные табы */}
+
+      {/* Десктопная версия */}
       <div className="hidden md:flex flex-wrap justify-center gap-3">
         {allCategories.map((category) => (
           <button
@@ -44,7 +49,7 @@ export function CategoryFilter({ currentCategory }: CategoryFilterProps) {
         ))}
       </div>
 
-      {/* Мобильная версия - горизонтально скроллируемые табы */}
+      {/* Мобильная версия */}
       <div className="md:hidden">
         <div className="flex overflow-x-auto gap-3 pb-2 px-1 scrollbar-hide">
           {allCategories.map((category) => (
@@ -62,6 +67,7 @@ export function CategoryFilter({ currentCategory }: CategoryFilterProps) {
           ))}
         </div>
       </div>
+
     </div>
   );
 }

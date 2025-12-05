@@ -16,7 +16,11 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   // swipe state
-  const swipe = useRef<{startX: number; currentX: number; dragging: boolean}>({
+  const swipe = useRef<{
+    startX: number;
+    currentX: number;
+    dragging: boolean;
+  }>({
     startX: 0,
     currentX: 0,
     dragging: false,
@@ -29,13 +33,6 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
       timerRef.current = null;
     }
   };
-
-  // Запуск автопрокрутки
-  const startTimer = useCallback(() => {
-    if (!intervalMs || intervalMs <= 0) return;
-    stopTimer();
-    timerRef.current = setInterval(() => goTo(index + 1), intervalMs);
-  }, [index, intervalMs]);
 
   // Переход к слайду
   const goTo = useCallback(
@@ -53,6 +50,13 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
     },
     [images.length]
   );
+
+  // Запуск автопрокрутки
+  const startTimer = useCallback(() => {
+    if (!intervalMs || intervalMs <= 0) return;
+    stopTimer();
+    timerRef.current = setInterval(() => goTo(index + 1), intervalMs);
+  }, [goTo, index, intervalMs]);
 
   // автопрокрутка
   useEffect(() => {
@@ -95,9 +99,6 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
   const onTouchMove = (e: React.TouchEvent<HTMLDivElement>) => {
     if (!swipe.current.dragging) return;
     swipe.current.currentX = e.touches[0].clientX;
-
-    // Optional: do visual slide drag if needed for effect
-    // Например, не реализовано: можно через transform
   };
 
   const onTouchEnd = () => {
@@ -119,14 +120,12 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
   };
 
   // ===== MOUSE EVENTS (DESKTOP DRAG SWIPE) =====
-  // Обеспечим swipe для десктопа через мышь (mouse drag)
   const onMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
     swipe.current.startX = e.clientX;
     swipe.current.currentX = e.clientX;
     swipe.current.dragging = true;
     stopTimer();
-    // Добавляем mousemove и mouseup для всего документа
     document.addEventListener('mousemove', onMouseMove);
     document.addEventListener('mouseup', onMouseUp);
   };
@@ -150,7 +149,6 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
     }
     swipe.current.dragging = false;
 
-    // Чистим слушателей
     document.removeEventListener('mousemove', onMouseMove);
     document.removeEventListener('mouseup', onMouseUp);
 
@@ -163,45 +161,46 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
   return (
     <div className="relative w-full">
       <div
-  ref={containerRef}
-  onScroll={onScroll}
-  onTouchStart={onTouchStart}
-  onTouchMove={onTouchMove}
-  onTouchEnd={onTouchEnd}
-  onMouseDown={onMouseDown}
-  className="
-   h-[...]
-    overflow-x-scroll overflow-y-hidden
-    snap-x snap-mandatory flex
-    touch-pan-x
-    select-none
-    cursor-grab active:cursor-grabbing
-    no-scrollbar
-  "
-  style={{
-    scrollBehavior: 'smooth',
-    WebkitOverflowScrolling: 'touch',
-    WebkitUserSelect: 'none',
-    msOverflowStyle: 'none',
-    scrollbarWidth: 'none',
-  }}
->
+        ref={containerRef}
+        onScroll={onScroll}
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+        onMouseDown={onMouseDown}
+        className="
+          h-[...]
+          overflow-x-scroll overflow-y-hidden
+          snap-x snap-mandatory flex
+          touch-pan-x
+          select-none
+          cursor-grab active:cursor-grabbing
+          no-scrollbar
+        "
+        style={{
+          scrollBehavior: 'smooth',
+          WebkitOverflowScrolling: 'touch',
+          WebkitUserSelect: 'none',
+          msOverflowStyle: 'none',
+          scrollbarWidth: 'none',
+        }}
+      >
         {images.map((img, i) => (
           <div key={img.src} className="relative min-w-screen snap-center">
-               <Image
-                 src={img.src}
-                 alt={img.alt || `slide-${i + 1}`}
-                 width={1920}
-                 height={1080}
-                 priority={i === 0}
-                 sizes="100vw"
-                 className="w-full h-auto object-contain md:object-cover"
-                 draggable={false}
-                 unselectable="on"
-               />
-             </div>
+            <Image
+              src={img.src}
+              alt={img.alt || `slide-${i + 1}`}
+              width={1920}
+              height={1080}
+              priority={i === 0}
+              sizes="100vw"
+              className="w-full h-auto object-contain md:object-cover"
+              draggable={false}
+              unselectable="on"
+            />
+          </div>
         ))}
       </div>
+
       {/* Стрелки */}
       <button
         aria-label="Prev"
@@ -210,8 +209,17 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
         type="button"
       >
         <span className="sr-only">Previous</span>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M15 19l-7-7 7-7"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
+
       <button
         aria-label="Next"
         onClick={() => goTo(index + 1)}
@@ -219,7 +227,15 @@ export default function BannerCarousel({ images, intervalMs = 5000 }: Props) {
         type="button"
       >
         <span className="sr-only">Next</span>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M15 19l-7-7 7-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/></svg>
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M15 19l-7-7 7-7"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
       </button>
     </div>
   );

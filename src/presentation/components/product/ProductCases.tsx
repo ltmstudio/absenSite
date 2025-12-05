@@ -1,12 +1,15 @@
+// app/.../components/product/ProductCases.tsx
 "use client";
+
+import { useTranslations } from 'next-intl';
 
 interface ProductCase {
   id: string;
-  title: string;
-  description: string;
+  title: string;          // сам текст или i18n-ключ — по желанию
+  description: string;    // сам текст или i18n-ключ
   image: string;
-  location: string;
-  specifications: string[];
+  location: string;       // можно тоже сделать ключом
+  specifications: string[]; // можно текстом, можно ключами
 }
 
 interface ProductCasesProps {
@@ -14,21 +17,23 @@ interface ProductCasesProps {
 }
 
 export function ProductCases({ cases }: ProductCasesProps) {
+  const t = useTranslations('productCases');
+
   return (
     <section className="py-20 bg-white">
       <div className="max-w-[80%] mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Кейсы и проекты
+            {t('title')}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Реальные примеры установок и успешных проектов
+            {t('subtitle')}
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {cases.map((caseItem) => (
-            <div 
+            <div
               key={caseItem.id}
               className="bg-gray-50 rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow"
             >
@@ -45,22 +50,22 @@ export function ProductCases({ cases }: ProductCasesProps) {
                   </div>
                 </div>
               </div>
-              
+
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-900 mb-4">
                   {caseItem.title}
                 </h3>
-                
+
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   {caseItem.description}
                 </p>
-                
+
                 <div className="space-y-2">
                   <h4 className="font-semibold text-gray-900 mb-3">
-                    Характеристики проекта:
+                    {t('characteristicsTitle')}
                   </h4>
                   {caseItem.specifications.map((spec, index) => (
-                    <div 
+                    <div
                       key={index}
                       className="flex items-center gap-2 text-gray-600"
                     >
