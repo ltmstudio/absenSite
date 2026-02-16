@@ -340,7 +340,7 @@
       "buttonText": "Посмотреть проекты"
     },
     "empty": "Нет баннеров для отображения",
-    "gotoSlide": "Перейти к слайду {{index}}"
+    "gotoSlide": "Перейти к слайду {index}"
   },
 
   "productSpecifications": {

@@ -345,7 +345,7 @@
       "buttonText": "View projects"
     },
     "empty": "No banners to display",
-    "gotoSlide": "Go to slide {{index}}"
+    "gotoSlide": "Go to slide {index}"
   },
  
 
